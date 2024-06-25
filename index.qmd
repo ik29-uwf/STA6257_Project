@@ -1,6 +1,6 @@
 ---
 title: "Sample Report - Data Science Capstone"
-author: "Student name"
+author: "Ibrahim Khan"
 date: '`r Sys.Date()`'
 format:
   html:
@@ -17,91 +17,8 @@ editor:
     wrap: 72
 ---
 
-## Introduction
-
-### What is "mehtod"?
-
-This is an introduction to LASSO regression, which is a non-parametric
-estimator that estimates the conditional expectation of two variables
-which is random. The goal of a kernel regression is to discover the
-non-linear relationship between two random variables. To discover the
-non-linear relationship, kernel estimator or kernel smoothing is the
-main method to estimate the curve for non-parametric statistics. In
-kernel estimator, weight function is known as kernel function
-[@efr2008]. Cite this paper [@bro2014principal]. The GEE [@wang2014].
-The PCA [@daffertshofer2004pca]
-
-This is my work and I want to add more work...
-
-### Related work
-
-This section is going to cover the literature review...
-
-## Methods
-
-The common non-parametric regression model is
-$Y_i = m(X_i) + \varepsilon_i$, where $Y_i$ can be defined as the sum of
-the regression function value $m(x)$ for $X_i$. Here $m(x)$ is unknown
-and $\varepsilon_i$ some errors. With the help of this definition, we
-can create the estimation for local averaging i.e. $m(x)$ can be
-estimated with the product of $Y_i$ average and $X_i$ is near to $x$. In
-other words, this means that we are discovering the line through the
-data points with the help of surrounding data points. The estimation
-formula is printed below [@R-base]:
-
-$$
-M_n(x) = \sum_{i=1}^{n} W_n (X_i) Y_i  \tag{1}
-$$ $W_n(x)$ is the sum of weights that belongs to all real numbers.
-Weights are positive numbers and small if $X_i$ is far from $x$.
-
-Another equation:
-
-$$
-y_i = \beta_0 + \beta_1 X_1 +\varepsilon_i
-$$
-
-## Analysis and Results
-
-### Data and Visualization
-
-A study was conducted to determine how...
-
-
-```{r, warning=FALSE, echo=T, message=FALSE}
-# loading packages 
-library(tidyverse)
-library(knitr)
-library(ggthemes)
-library(ggrepel)
-library(dslabs)
-```
-
-```{r, warning=FALSE, echo=TRUE}
-# Load Data
-kable(head(murders))
-
-ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total)) 
-
-  ggplot1 + geom_point(aes(col=region), size = 4) +
-  geom_text_repel(aes(label=abb)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_smooth(formula = "y~x", method=lm,se = F)+
-  xlab("Populations in millions (log10 scale)") + 
-  ylab("Total number of murders (log10 scale)") +
-  ggtitle("US Gun Murders in 2010") +
-  scale_color_discrete(name = "Region")+
-      theme_bw()
-  
-
-```
-
-### Statistical Modeling
-
-```{r}
-
-```
-
-### Conclusion
-
-## References
+## Week 1 Research Paper Summary
+  - Summary Paper 1: [@nadkarni2011natural]
+    - The paper "Natural Language Processing: An Introduction" by Prakash M Nadkarni, Lucila Ohno-Machado, and Wendy W Chapman provides an extensive tutorial on natural language processing (NLP) aimed at medical informatics generalists. It traces the evolution of NLP from its origins in the 1950s to the present, highlighting the convergence of NLP with information retrieval and the rise of statistical methods in the 1980s. The tutorial covers the historical challenges of rule-based approaches and the transition to statistical NLP, which utilizes large annotated corpora and machine learning algorithms to improve parsing and interpretation. Various NLP sub-problems are discussed, including sentence boundary detection, tokenization, part-of-speech tagging, and named entity recognition, with a focus on their application to clinical text. The article also explores higher-level tasks such as relationship extraction and information extraction, emphasizing the complementary nature of rule-based and statistical approaches in modern NLP systems.
+  - Summary Paper 2: [@webster1992tokenization]
+    - The paper "Tokenization as the Initial Phase in NLP" by Jonathan J. Webster and Chunyu Kit explores the critical role of tokenization in natural language processing (NLP). Tokenization involves splitting text into individual tokens, which are essential for various NLP tasks such as part-of-speech tagging and parsing. The process is challenged by complexities in biomedical text, where tokens often contain characters used as token boundaries, such as hyphens and slashes. The paper highlights the importance of accurately identifying sentence boundaries, handling abbreviations and titles, and segmenting text into meaningful units. The authors discuss different tokenization techniques and their impact on downstream NLP tasks, emphasizing the need for robust methods to handle the unique characteristics of clinical narratives. Although tokenization may seem straightforward, its accuracy significantly influences the effectiveness of subsequent NLP applications in healthcare, such as information extraction and electronic health record analysis.
